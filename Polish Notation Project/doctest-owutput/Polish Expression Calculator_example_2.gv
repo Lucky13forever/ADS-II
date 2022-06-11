@@ -1,0 +1,81 @@
+// Polish Expression Calculator
+digraph {
+	start [label="The polish expression is: " shape=plaintext]
+	expression [label="^ * - + 5 - 3 - 5 2 10 - 2 * 3 - 1 3 % 15 * 3 - 2 - 3 5" shape=plaintext]
+	"graph" [label="The syntax tree of the expression is:" shape=plaintext]
+	sentinel [label="" shape=plaintext]
+	1 [label="^"]
+	start -> expression [label="" color=white]
+	expression -> "graph" [label="" color=white]
+	"graph" -> 1 [label="" color=white]
+	2 [label="*"]
+	1 -> 2
+	4 [label="-"]
+	2 -> 4
+	8 [label="+"]
+	4 -> 8
+	16 [label=5]
+	8 -> 16
+	16 -> sentinel [color=white]
+	17 [label="-"]
+	8 -> 17
+	34 [label=3]
+	17 -> 34
+	34 -> sentinel [color=white]
+	35 [label="-"]
+	17 -> 35
+	70 [label=5]
+	35 -> 70
+	70 -> sentinel [color=white]
+	71 [label=2]
+	35 -> 71
+	71 -> sentinel [color=white]
+	9 [label=10]
+	4 -> 9
+	9 -> sentinel [color=white]
+	5 [label="-"]
+	2 -> 5
+	10 [label=2]
+	5 -> 10
+	10 -> sentinel [color=white]
+	11 [label="*"]
+	5 -> 11
+	22 [label=3]
+	11 -> 22
+	22 -> sentinel [color=white]
+	23 [label="-"]
+	11 -> 23
+	46 [label=1]
+	23 -> 46
+	46 -> sentinel [color=white]
+	47 [label=3]
+	23 -> 47
+	47 -> sentinel [color=white]
+	3 [label="%"]
+	1 -> 3
+	6 [label=15]
+	3 -> 6
+	6 -> sentinel [color=white]
+	7 [label="*"]
+	3 -> 7
+	14 [label=3]
+	7 -> 14
+	14 -> sentinel [color=white]
+	15 [label="-"]
+	7 -> 15
+	30 [label=2]
+	15 -> 30
+	30 -> sentinel [color=white]
+	31 [label="-"]
+	15 -> 31
+	62 [label=3]
+	31 -> 62
+	62 -> sentinel [color=white]
+	63 [label=5]
+	31 -> 63
+	63 -> sentinel [color=white]
+	result_text [label="The evaluation of this expression equals to:" shape=plaintext]
+	result [label=-64000 shape=plaintext]
+	sentinel -> result_text [color=white]
+	result_text -> result [color=white]
+}

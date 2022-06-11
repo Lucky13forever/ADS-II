@@ -1,0 +1,42 @@
+// Polish Expression Calculator
+digraph {
+	start [label="The polish expression is: " shape=plaintext]
+	expression [label="- * - 5 3 + 3 7 * 2 3
+" shape=plaintext]
+	"graph" [label="The syntax tree of the expression is:" shape=plaintext]
+	sentinel [label="" shape=plaintext]
+	1 [label="-"]
+	start -> expression [label="" color=white]
+	expression -> "graph" [label="" color=white]
+	"graph" -> 1 [label="" color=white]
+	2 [label="*"]
+	1 -> 2
+	4 [label="-"]
+	2 -> 4
+	8 [label=5]
+	4 -> 8
+	8 -> sentinel [color=white]
+	9 [label=3]
+	4 -> 9
+	9 -> sentinel [color=white]
+	5 [label="+"]
+	2 -> 5
+	10 [label=3]
+	5 -> 10
+	10 -> sentinel [color=white]
+	11 [label=7]
+	5 -> 11
+	11 -> sentinel [color=white]
+	3 [label="*"]
+	1 -> 3
+	6 [label=2]
+	3 -> 6
+	6 -> sentinel [color=white]
+	7 [label=3]
+	3 -> 7
+	7 -> sentinel [color=white]
+	result_text [label="The evaluation of this expression equals to:" shape=plaintext]
+	result [label=14 shape=plaintext]
+	sentinel -> result_text [color=white]
+	result_text -> result [color=white]
+}
